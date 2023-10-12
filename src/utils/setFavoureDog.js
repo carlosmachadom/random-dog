@@ -1,4 +1,6 @@
 import getFavouritesDogs from "@utils/getFavouritesDogs";
+import showSucessMessage from "@utils/showSuccessMessage";
+import showErrorMessage from "@utils/showErrorMessage";
 
 export default async function setFavouritesDogs({ dogId }) { 
     const API_URL = process.env.API_URL;
@@ -22,16 +24,18 @@ export default async function setFavouritesDogs({ dogId }) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log({ response, data });
 
-        if (response.status != 200) {
-
-        } else {
-
-        }
-
-        getFavouritesDogs();        
+        if (response.status !== 200) {
+            throw new Error(`Error ${response.status}: ${data.message}`);
+        } else {            
+            showSucessMessage({ message: `${data.message}: Perrito agregado a favoritos` });
+            getFavouritesDogs();
+        }                
     } catch (error) {
-        throw new Error("Error en la solicitud: " + error.message);
+        if (error instanceof TypeError) {
+            showErrorMessage({ message: error.message });
+        } else {
+            showErrorMessage({ message: error.message});
+        }
     }
 }

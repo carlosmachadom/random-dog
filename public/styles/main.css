@@ -79,6 +79,10 @@ ul>li {
     font-size: 1.8rem;
 }
 
+.uploading-form>.image-container .dog-image {
+    max-width: 120px;
+}
+
 .app .dogs-sections-wrapper section:first-child {
     margin-block-end: 2.6rem;
 }
@@ -92,15 +96,18 @@ ul>li {
     margin-block-end: 1.6rem;
 }
 
+.app .dogs-sections-wrapper section {
+    max-width: 1000px;
+        margin: 0 auto;
+}
+
 .app .dogs-sections-wrapper section>ul.dogs-list {
     width: 100%;
-    max-width: 1120px;
-    margin: 0 auto;
     display: grid;
     gap: 2rem;
     grid-auto-flow: dense;
     grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 360px));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 320px));
 }
 
 ul.dogs-list li .dog-card {

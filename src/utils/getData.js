@@ -1,35 +1,31 @@
-
-
-function showError({ status, message }) { 
-    const errorContainer = document.querySelector(".toast-messages");
-    const error = errorContainer.querySelector(".error");
-    error.innerHTML = `
-        Error ${status} - ${message}:
-    `;
-
-    if (errorContainer.classList.contains('hidden')) { 
-        errorContainer.classList.remove('hidden')
-    }
-
-    setInterval(() => { 
-        if (!errorContainer.classList.contains('hidden')) { 
-            errorContainer.classList.add('hidden')
-        }
-    }, 2000)
-}
+import showErrorMessage from "@utils/showErrorMessage";
 
 export default async function getData({ endpoint, query }) {     
     const API_URL = process.env.API_URL;
     const API_KEY = process.env.API_KEY;
 
-    try {
-        const response = await fetch(`${API_URL}/${endpoint}?${query}&api_key=${API_KEY}`);
-        const data = await response.json();
-        return data;
-        if (response.status === 200) {
-            
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-api-key': API_KEY
         }
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/${endpoint}?${query}`, options);
+        const data = await response.json();
+        
+        if (response.status !== 200) {
+            throw new Error(`Error ${response.status}: ${data.message}`);
+        } else { 
+            return data;
+        }
+
     } catch (error) {
-        throw new Error("Doggie not found..");
+        if (error instanceof TypeError) {
+            showErrorMessage({ message: error.message });
+        } else {
+            showErrorMessage({ message: error.message });
+        }
     }
 }

@@ -1,20 +1,6 @@
 import getFavouritesDogs from "@utils/getFavouritesDogs";
-import successToast from "@templates/toast-success";
-
-function showSucessMessage({ message }) { 
-    let successText = message;
-    const messagesContainer = document.querySelector(".messages-container");
-    let toast =  successToast({ message: successText });
-    let id = Math.ceil(Math.random() * 100);
-    let messageNode = document.createElement("div");
-    messageNode.classList.add(`message-success-${id}`);
-    messageNode.innerHTML = toast;
-    messagesContainer.appendChild(messageNode);
-
-    setTimeout(() => {
-        document.querySelector(`div.message-success-${id}`).remove();
-    }, 2500);
-}
+import showSucessMessage from "@utils/showSuccessMessage";
+import showErrorMessage from "@utils/showErrorMessage";
 
 export default async function deleteFavouritesDogs({ dogId }) { 
     const API_URL = process.env.API_URL;
@@ -32,16 +18,18 @@ export default async function deleteFavouritesDogs({ dogId }) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        //console.log({ response, data });
 
-        if (response.status === 200) {
-            showSucessMessage({ message: data.message });
-        } else {
-
-        }
-
-        getFavouritesDogs();        
+        if (response.status !== 200) {
+            throw new Error(`Error ${response.status}: ${data.message}`);
+        } else {            
+            showSucessMessage({ message: `${data.message}: Perrito eliminado de favoritos` });
+            getFavouritesDogs();
+        }                
     } catch (error) {
-        throw new Error("Error en la solicitud: " + error.message);
+        if (error instanceof TypeError) {
+            showErrorMessage({ message: error.message });
+        } else {
+            showErrorMessage({ message: error.message });
+        }
     }
 }

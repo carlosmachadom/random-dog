@@ -18,8 +18,25 @@
                     <span>Number of dogs</span>
                     <input type="number" min="1" max="12" id="dogs-number" value="1">
                 </label>
-                <button class="dog">Get Dog</button>
+                <button type="button" class="dog">Get Dog</button>
             </form>
+
+            <div class="upload-new-dog">
+                <h2>Upload your dogs pic</h2>
+
+                <form action="" class="uploading-form">
+                    <label for="dog-file">
+                        <span>Upload file</span>
+                        <input class="doggie-file" id="dog-file" type="file" name="file"/>
+                    </label>
+                    
+                    <figure class="image-container">
+                        <img src="" class="dog-image">
+                    </figure>
+
+                    <button class="send-doggie" type="button">Send pic</button>                    
+                </form>
+            </div>
         </section>
     
         <div class="dogs-sections-wrapper">
