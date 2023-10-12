@@ -3,7 +3,7 @@ import favouriteDoggieCard from "@templates/favouriteDoggieCard";
 
 export default async function getFavouritesDogs() { 
     const FAVOURITE_DOGS_ENDPOINT = `favourites`;
-    const FAVOURITE_DOGS_QUERY = `limit=10`;
+    const FAVOURITE_DOGS_QUERY = `limit=0`;
     const dogsList = document.querySelector("section.favourite-dogs > ul.dogs-list");
 
     [...dogsList.querySelectorAll("li.current-dog")].map(item => item.remove());
@@ -12,9 +12,10 @@ export default async function getFavouritesDogs() {
 
     dogs.map((dog) => {
         const listItem = document.createElement("li");
-        listItem.classList.add("current-dog");        
-        let image = dog.image.url;      
-        let dogCard = favouriteDoggieCard({ imgUrl: image });
+        listItem.classList.add("current-dog");
+        let image = dog.image.url;  
+        let id = dog.id;
+        let dogCard = favouriteDoggieCard({ imgUrl: image, dogId: id});
         listItem.innerHTML = dogCard;
         dogsList.append(listItem);
    });

@@ -1,3 +1,5 @@
+import getFavouritesDogs from "@utils/getFavouritesDogs";
+
 export default async function setFavouritesDogs({ dogId }) { 
     const API_URL = process.env.API_URL;
     const FAVOURITE_DOGS_ENDPOINT = `favourites`;
@@ -28,7 +30,7 @@ export default async function setFavouritesDogs({ dogId }) {
 
         }
 
-        return {response, data};
+        getFavouritesDogs();        
     } catch (error) {
         throw new Error("Error en la solicitud: " + error.message);
     }

@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    min-height: 100dvh;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+}
+
+ul>li {
+    list-style: none;
+}
+
+.header {
+    padding: 2rem;
+    text-align: center;
+}
+
+.header .app-title {
+    font-size: 3.6rem;
+}
+
+.header .app-description {
+    font-size: 2.6rem;
+}
+
+.app {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    gap: 4rem;
+}
+
+.app .search-bar {
+    width: 100%;
+    max-width: 300px;
+}
+
+.app .search-bar .form {
+    width: 100%;
+}
+
+.app .search-bar .form>.dogs-numer-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.app .search-bar .form>.dogs-numer-label span {
+    font-size: 1.8rem;
+    margin-block-end: 1rem;
+}
+
+.app .search-bar .form>.dogs-numer-label input {
+    font-size: 1.8rem;
+    padding: 1.2rem;
+    margin-block-end: 1rem;
+}
+
+.app .search-bar .form>button.dog {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+}
+
+.app .dogs-sections-wrapper section:first-child {
+    margin-block-end: 2.6rem;
+}
+
+.app .dogs-sections-wrapper section>h2 {
+    font-size: 2.4rem;
+    margin-block-end: 1rem;
+}
+
+.app .dogs-sections-wrapper section>hr {
+    margin-block-end: 1.6rem;
+}
+
+.app .dogs-sections-wrapper section>ul.dogs-list {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 360px));
+}
+
+ul.dogs-list li .dog-card {
+    width: 100%;
+    height: 100%;
+}
+
+ul.dogs-list li .dog-card .dog--image {
+    width: 100%;
+}
+
+ul.dogs-list li .dog-card .dog--image img {
+    width: 100%;
+    min-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+ul.dogs-list li .dog-card .dog--info {
+    width: 100%;
+    padding-block-start: 1rem;
+}
+
+ul.dogs-list li .dog-card .dog--info .info--description {
+    padding-block-end: 1rem;
+}
+
+ul.dogs-list li .dog-card .dog--info .info--description .info__breed {
+    font-size: 2rem;
+}
+
+ul.dogs-list li .dog-card .dog--info .info--description p {
+    font-size: 1.4rem;
+}
+
+ul.dogs-list li .dog-card .dog--info .info__button {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+}
+
+.messages-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    transform: translateX(-50%);
+}
