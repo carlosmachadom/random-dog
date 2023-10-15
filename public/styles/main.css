@@ -24,6 +24,7 @@ ul>li {
     list-style: none;
 }
 
+/* Header */
 .header {
     padding: 2rem;
     text-align: center;
@@ -37,6 +38,8 @@ ul>li {
     font-size: 2.6rem;
 }
 
+
+/* General App */
 .app {
     width: 100%;
     max-width: 1440px;
@@ -48,60 +51,85 @@ ul>li {
     gap: 4rem;
 }
 
-.app .search-bar {
+
+/* Aside  */
+.app .functions-aside {
     width: 100%;
     max-width: 300px;
 }
 
-.app .search-bar .form {
+.functions-aside .search-section {
     width: 100%;
+    padding: 2rem 0;
 }
 
-.app .search-bar .form>.dogs-numer-label {
+.functions-aside .search-section .search__title {
+    font-size: 2.4rem;
+    margin-block-start: .5rem;
+    margin-block-end: 1rem;
+}
+
+.functions-aside .search-section .search-breds-form {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
-.app .search-bar .form>.dogs-numer-label span {
-    font-size: 1.8rem;
-    margin-block-end: 1rem;
+.functions-aside .search-section .search-breds-form .bred-label {
+    flex: 1;
 }
 
-.app .search-bar .form>.dogs-numer-label input {
-    font-size: 1.8rem;
-    padding: 1.2rem;
-    margin-block-end: 1rem;
-}
-
-.app .search-bar .form>button.dog {
+.functions-aside .search-section .search-breds-form .bred-label #select-dog {
     width: 100%;
-    padding: 1.2rem;
-    font-size: 1.8rem;
+    padding: 1rem;
 }
+
+.functions-aside .search-section .search-breds-form .search-btn {
+    padding: 1rem;
+}
+
+/* Upload dog section */
+/* .uploading-section {
+
+} */
 
 .uploading-form>.image-container .dog-image {
     max-width: 120px;
 }
 
-.app .dogs-sections-wrapper section:first-child {
-    margin-block-end: 2.6rem;
-}
 
-.app .dogs-sections-wrapper section>h2 {
-    font-size: 2.4rem;
-    margin-block-end: 1rem;
-}
+/* Main content */
 
-.app .dogs-sections-wrapper section>hr {
-    margin-block-end: 1.6rem;
-}
-
-.app .dogs-sections-wrapper section {
+/* Random dogs section */
+.app .dogs-sections-wrapper .random-dogs {
     max-width: 1000px;
-        margin: 0 auto;
+    margin: 0 auto;
 }
 
-.app .dogs-sections-wrapper section>ul.dogs-list {
+.random-dogs .random-dogs--header {
+    padding: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.random-dogs  .random-dogs--header .random-dogs__title {
+    font-size: 2.4rem;
+}
+
+.random-dogs .random-dogs--header .header--controll-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.random-dogs .random-dogs--header .header--controll-buttons .reload-dog {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.random-dogs .dogs-list {
     width: 100%;
     display: grid;
     gap: 2rem;
@@ -110,46 +138,33 @@ ul>li {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 320px));
 }
 
-ul.dogs-list li .dog-card {
+/* Favourite dogs section */
+.app .dogs-sections-wrapper .favourite-dogs {
     width: 100%;
-    height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-ul.dogs-list li .dog-card .dog--image {
+.favourite-dogs .favourite-dogs--header {
+    padding: 2rem 0;
     width: 100%;
 }
 
-ul.dogs-list li .dog-card .dog--image img {
+.favourite-dogs .favourite-dogs--header .favourite-dogs__title {
+    font-size: 2.4rem;
+}
+
+.favourite-dogs > .dogs-list {
     width: 100%;
-    min-width: 300px;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
+    display: grid;
+    gap: 2rem;
+    grid-auto-flow: dense;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 320px));
 }
 
-ul.dogs-list li .dog-card .dog--info {
-    width: 100%;
-    padding-block-start: 1rem;
-}
 
-ul.dogs-list li .dog-card .dog--info .info--description {
-    padding-block-end: 1rem;
-}
-
-ul.dogs-list li .dog-card .dog--info .info--description .info__breed {
-    font-size: 2rem;
-}
-
-ul.dogs-list li .dog-card .dog--info .info--description p {
-    font-size: 1.4rem;
-}
-
-ul.dogs-list li .dog-card .dog--info .info__button {
-    width: 100%;
-    padding: 1.2rem;
-    font-size: 1.4rem;
-}
-
+/* Messages container */
 .messages-container {
     position: fixed;
     bottom: 0;
@@ -157,4 +172,9 @@ ul.dogs-list li .dog-card .dog--info .info__button {
     display: flex;
     flex-direction: column-reverse;
     transform: translateX(-50%);
+}
+
+/* Utils */
+.hidden {
+    display: none;
 }

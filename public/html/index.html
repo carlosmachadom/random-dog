@@ -12,21 +12,24 @@
     </header>
 
     <main class="app">
-        <section class="search-bar">
-            <form action="" class="form">
-                <label class="dogs-numer-label" for="dogs-number">
-                    <span>Number of dogs</span>
-                    <input type="number" min="1" max="12" id="dogs-number" value="1">
-                </label>
-                <button type="button" class="dog">Get Dog</button>
-            </form>
+        <aside class="functions-aside">
+            <section class="search-section">
+                <h2 class="search__title">Search purebred dogs</h2>
+                <form class="search-breds-form">
+                    <label for="select-dog" class="bred-label">
+                        <select name="select" id="select-dog">
+                            <option disabled selected>Selecciona una opción</option>
+                        </select>
+                    </label>
+                    <button type="button" class="search-btn">Get Dogs</button>
+                </form>
+            </section>
 
-            <div class="upload-new-dog">
+            <section class="uploading-section">
                 <h2>Upload your dogs pic</h2>
 
                 <form action="" class="uploading-form">
                     <label for="dog-file">
-                        <span>Upload file</span>
                         <input class="doggie-file" id="dog-file" type="file" name="file"/>
                     </label>
                     
@@ -36,19 +39,39 @@
 
                     <button class="send-doggie" type="button">Send pic</button>                    
                 </form>
-            </div>
-        </section>
+
+                <section class="uploaded-dogs">
+                    <ul class="dogs-list"></ul>
+                </section>
+            </section>
+        </aside>
     
         <div class="dogs-sections-wrapper">
             <section class="random-dogs">
-                <h2>Random dogs</h2>
-                <hr>
+                <header class="random-dogs--header">
+                    <h2 class="random-dogs__title">Random dogs</h2>
+                    
+                    <section class="header--controll-buttons">
+                        <strong class="breed-text hidden">
+                            Breed: 
+                            <span>
+
+                            </span>
+                        </strong>
+                        
+                        <button class="reload-dog">
+                            Reload
+                        </button>
+                    </section>
+                </header>
+
                 <ul class="dogs-list"></ul>
             </section>
             
             <section class="favourite-dogs">
-                <h2>Favorite dogs</h2>
-                <hr>
+                <header class="favourite-dogs--header">
+                    <h2 class="favourite-dogs__title">Favorite dogs</h2>
+                </header>
                 <ul class="dogs-list"></ul>
             </section>
         </div>

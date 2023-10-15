@@ -1,4 +1,4 @@
-export default function favouriteDoggieCard({ imgUrl, dogId }) { 
+export default function uploadedDoggieCard({ imgUrl, dogId }) { 
     const view = `
         <article class="dog-card" data-id="${dogId}">
             <figure class="dog--image">

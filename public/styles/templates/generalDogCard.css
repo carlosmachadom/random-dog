@@ -1,0 +1,63 @@
+/* general card */
+.dog-card.general {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 16px;
+}
+
+.dog-card.general .dog--image {
+    width: 100%;
+}
+
+.dog-card.general .dog--image img {
+    width: 100%;
+    min-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Info */
+.dog-card.general.breeds > .dog--info {
+    background-color: rgba(48, 67, 154, 0.5);
+    color: white;
+    width: 100%;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: linear .5s opacity;
+}
+
+.dog-card.general.breeds:hover .dog--info {
+    opacity: 1;
+    transition: linear .5s opacity;
+}
+
+.dog-card.general.breeds > .dog--info .info--description {
+    padding-block-end: 1rem;
+}
+
+.dog-card.general.breeds > .dog--info .info--description .info__breed {
+    font-size: 2rem;
+}
+
+.dog-card.general.breeds > .dog--info .info--description p {
+    font-size: 1.4rem;
+}
+
+/* Button */
+.dog-card.general .info__button {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.6rem;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    margin: 1rem;
+}
