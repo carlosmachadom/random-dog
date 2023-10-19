@@ -16,7 +16,8 @@ export default async function getFavouritesDogs() {
             listItem.classList.add("current-dog", "delete");
             let image = dog.image.url;  
             let id = dog.id;
-            let dogCard = generalDogCard({ imgUrl: image, dogId: id});
+            let imageId = dog.image_id;
+            let dogCard = generalDogCard({ imgUrl: image, dogId: id, imageId});
             listItem.innerHTML = dogCard;
             dogsList.append(listItem);
        });

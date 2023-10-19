@@ -26,21 +26,30 @@
             </section>
 
             <section class="uploading-section">
-                <h2>Upload your dogs pic</h2>
+                <h2 class="uploading__title">Upload your doggies</h2>
 
                 <form action="" class="uploading-form">
-                    <label for="dog-file">
-                        <input class="doggie-file" id="dog-file" type="file" name="file"/>
-                    </label>
+                    <input class="doggie-file hidden" id="dog-file" type="file" name="file"/>
                     
-                    <figure class="image-container">
-                        <img src="" class="dog-image">
+                    <label for="dog-file" class="fake-button">
+                        <div class="select-text">
+                            <span>Select file...</span>
+                        </div>
+                        <div class="select-image">
+                            <span>📁</span>
+                        </div>
+                    </label>
+                    <span class="error-message hidden"></span>
+                    
+                    <figure class="image-container hidden">
+                        <img src="" class="dog-image" />
                     </figure>
 
                     <button class="send-doggie" type="button">Send pic</button>                    
                 </form>
 
                 <section class="uploaded-dogs">
+                    <h2 class="uploaded-dogs__title">Your dogs</h2>
                     <ul class="dogs-list"></ul>
                 </section>
             </section>

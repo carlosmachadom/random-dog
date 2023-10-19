@@ -3,6 +3,7 @@ import "@styles/templates/generalDogCard.css";
 export default function generalDogCard({
     imgUrl,
     dogId,
+    imageId = null,
     breeds = []
 } = {}) { 
     let view = "";
@@ -18,7 +19,7 @@ export default function generalDogCard({
     
                 <section class="dog--info">
                     <div class="info--description">
-                        <h3 class="info__breed">Breed: ${name}</h3>
+                        <h3 class="info__breed">${name}</h3>
                         <p class="info__job"><strong>Breed for:</strong> ${bred_for}</p>
                         <p class="info__temperament"><strong>Temperament:</strong> ${temperament}</p>
                         <p class="info__life"><strong>Life span:</strong> ${life_span}</p>
@@ -29,15 +30,27 @@ export default function generalDogCard({
             </article>
         `;
     } else {
-        view = `
-            <article class="dog-card general" data-id="${dogId}">
-                <figure class="dog--image">
-                    <img src="${imgUrl}" alt="image of a lovely dog" title="image of a lovely dog"/>
-                </figure>
-                
-                <button class="info__button favourite-btn">${"💘"}</button>
-            </article>
-        `;
+        if (imageId !== null) {
+            view = `
+                <article class="dog-card general" data-id="${dogId}" data-image-id="${imageId}">
+                    <figure class="dog--image">
+                        <img src="${imgUrl}" alt="image of a lovely dog" title="image of a lovely dog"/>
+                    </figure>
+                    
+                    <button class="info__button favourite-btn">${"💘"}</button>
+                </article>
+            `;            
+        } else {
+            view = `
+                <article class="dog-card general" data-id="${dogId}">
+                    <figure class="dog--image">
+                        <img src="${imgUrl}" alt="image of a lovely dog" title="image of a lovely dog"/>
+                    </figure>
+                    
+                    <button class="info__button favourite-btn">${"💘"}</button>
+                </article>
+            `;
+        }
     }
 
     return view; 
