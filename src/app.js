@@ -16,8 +16,8 @@ const reloadRandomDogsButton = null || document.querySelector('.random-dogs .ran
 const uploadDogForm = null || document.querySelector('.functions-aside > .uploading-section > .uploading-form');
 const uploadDogButton = null || document.querySelector('.functions-aside > .uploading-section > .uploading-form > .send-doggie');
 const uploadedDogsList = null || document.querySelector('.functions-aside > .uploading-section > .uploaded-dogs .dogs-list');
-const randomDogsList = null || document.querySelector('section.random-dogs > ul.dogs-list');
-const favouriteDogsList = null || document.querySelector('section.favourite-dogs > ul.dogs-list');
+const randomDogsList = null || document.querySelector('section.random-dogs > .list-wrapper ul.dogs-list');
+const favouriteDogsList = null || document.querySelector('section.favourite-dogs > .list-wrapper ul.dogs-list');
 
 
 

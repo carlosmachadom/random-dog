@@ -4,7 +4,7 @@ import generalDogCard from "@templates/generalDogCard";
 export default async function getFavouritesDogs() { 
     const FAVOURITE_DOGS_ENDPOINT = `favourites`;
     const FAVOURITE_DOGS_QUERY = `limit=0`;
-    const dogsList = document.querySelector("section.favourite-dogs > ul.dogs-list");
+    const dogsList = document.querySelector("section.favourite-dogs > .list-wrapper ul.dogs-list");
 
     dogsList.innerHTML = "";
 

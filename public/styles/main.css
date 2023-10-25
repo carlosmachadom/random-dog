@@ -16,7 +16,7 @@ body {
     min-height: 100dvh;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
 }
 
@@ -42,6 +42,7 @@ ul>li {
 /* General App */
 .app {
     width: 100%;
+    min-width: 300px;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 4rem;
@@ -71,12 +72,6 @@ ul>li {
 
 .functions-aside .search-section .search-breds-form {
     width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.functions-aside .search-section .search-breds-form .bred-label {
-    flex: 1;
 }
 
 .functions-aside .search-section .search-breds-form .bred-label #select-dog {
@@ -85,6 +80,8 @@ ul>li {
 }
 
 .functions-aside .search-section .search-breds-form .search-btn {
+    width: 100%;
+    margin-block-start: 1rem;
     padding: 1rem;
 }
 
@@ -136,6 +133,7 @@ ul>li {
 .uploading-section>.uploading-form> .send-doggie {
     width: 100%;
     padding: 1rem;
+    cursor: pointer;
     margin-block-start: 1rem;
 }
 
@@ -146,6 +144,7 @@ ul>li {
 
 .uploading-section>.uploaded-dogs .uploaded-dogs__title {
     font-size: 2.4rem;
+    margin-block-end: 1rem;
 }
 
 .uploading-section>.uploaded-dogs .dogs-list {
@@ -158,11 +157,21 @@ ul>li {
 
 
 /* Main content */
+.app .dogs-sections-wrapper {
+    width: 100%;
+}
 
 /* Random dogs section */
+.app .dogs-sections-wrapper .favourite-dogs,
 .app .dogs-sections-wrapper .random-dogs {
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.favourite-dogs .favourite-dogs--header {
+    padding: 2rem 0;
+    width: 100%;
 }
 
 .random-dogs .random-dogs--header {
@@ -173,6 +182,7 @@ ul>li {
     align-items: center;
 }
 
+.favourite-dogs .favourite-dogs--header .favourite-dogs__title,
 .random-dogs  .random-dogs--header .random-dogs__title {
     font-size: 2.4rem;
 }
@@ -188,40 +198,82 @@ ul>li {
     cursor: pointer;
 }
 
-.random-dogs .dogs-list {
+.favourite-dogs .list-wrapper,
+.random-dogs .list-wrapper {
     width: 100%;
-    display: grid;
+    position: relative;
+}
+
+.favourite-dogs .list-wrapper .dogs-list,
+.random-dogs .list-wrapper .dogs-list {
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.favourite-dogs .list-wrapper .dogs-list::-webkit-scrollbar,
+.random-dogs .list-wrapper .dogs-list::-webkit-scrollbar {
+    display: none;
+}
+
+.favourite-dogs .dogs-list.dragging,
+.random-dogs .dogs-list.dragging {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.favourite-dogs .list-wrapper .dogs-list li,
+.random-dogs .list-wrapper .dogs-list li {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.favourite-dogs .list-wrapper .arrow,
+.random-dogs .list-wrapper  .arrow {
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.favourite-dogs .list-wrapper .arrow.right,
+.random-dogs .list-wrapper .arrow.right {
+    right: -2rem;
+}
+
+.favourite-dogs .list-wrapper .arrow.left,
+.random-dogs .list-wrapper .arrow.left {
+    left: -2rem;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
-    grid-auto-flow: dense;
-    grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 320px));
 }
 
-/* Favourite dogs section */
-.app .dogs-sections-wrapper .favourite-dogs {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+.footer .footer__text {
+    font-size: 1.4rem;
 }
 
-.favourite-dogs .favourite-dogs--header {
-    padding: 2rem 0;
-    width: 100%;
+.footer .footer--nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
-.favourite-dogs .favourite-dogs--header .favourite-dogs__title {
-    font-size: 2.4rem;
+.footer .footer--nav li a {
+    font-size: 1.4rem;
 }
-
-.favourite-dogs > .dogs-list {
-    width: 100%;
-    display: grid;
-    gap: 2rem;
-    grid-auto-flow: dense;
-    grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 320px));
-}
-
 
 /* Messages container */
 .messages-container {
@@ -236,3 +288,53 @@ ul>li {
 .hidden {
     display: none;
 }
+
+/* Media queries */
+@media (min-width: 1000px) { 
+    .favourite-dogs .list-wrapper .dogs-list,
+    .random-dogs .list-wrapper .dogs-list {
+        gap: 2rem;
+    }
+
+    .favourite-dogs .list-wrapper .dogs-list li,
+    .random-dogs .list-wrapper .dogs-list li {
+        flex: 0 0 32%;
+    }
+}
+
+@media (max-width: 600px) {
+    .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        padding: 0;
+    }
+
+    .app .functions-aside {
+        max-width: none;
+    }
+
+    .app .functions-aside .search-section {
+        padding: 2rem;
+    }
+
+    .app .functions-aside .uploading-section {
+        padding: 0 2rem;
+    }
+
+    .uploading-section .uploading__title {
+        display: none;
+    }
+
+    .uploading-section>.uploading-form {
+        display: none;
+    }
+
+    .app .dogs-sections-wrapper {
+        padding: 0 2rem;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}
+

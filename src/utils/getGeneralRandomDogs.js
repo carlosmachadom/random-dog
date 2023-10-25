@@ -14,7 +14,7 @@ export default async function getGeneralRandomDogs({ limit = 3, breed = null, br
         RANDOM_DOGS_QUERY = `limit=${limit}&breed_ids=${breedId}`;
     }
     
-    const dogsList = document.querySelector("section.random-dogs > .dogs-list");
+    const dogsList = document.querySelector("section.random-dogs > .list-wrapper .dogs-list");
     dogsList.innerHTML = "";
 
     const dogs = await getData({ endpoint: RANDOM_DOGS_ENDPOINT, query: RANDOM_DOGS_QUERY });
