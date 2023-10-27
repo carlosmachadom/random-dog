@@ -23,10 +23,36 @@
     top: 0;
     right: 0;
     margin: 1rem;
+    border: none;
+    background-color: transparent;
+    width: 22px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('@images/PhHeartDuotone.svg');
+}
+
+.uploaded-dogs .dogs-list li .dog-card button.info__button.favorite-btn:hover {
+    background-image: url('@images/PhHeartFill.svg');
 }
 
 .uploaded-dogs .dogs-list li .dog-card button.info__button.delete-btn {
     bottom: 0;
     right: 0;
     margin: 1rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--main-gray);
+    width: 22px;
+    height: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('@images/DeleteOutline.svg');
+}
+
+.uploaded-dogs .dogs-list li .dog-card button.info__button.delete-btn:hover {
+    background-image: url('@images/Delete.svg');
 }

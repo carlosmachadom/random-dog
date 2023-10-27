@@ -7,8 +7,8 @@ export default function uploadedDoggieCard({ imgUrl, dogId }) {
                 <img src="${imgUrl}" alt="image of a dog" title="image of a dog"/>
             </figure>
 
-            <button class="info__button favorite-btn">💘</button>
-            <button class="info__button delete-btn">❌</button>
+            <button class="info__button favorite-btn"></button>
+            <button class="info__button delete-btn"></button>
         </article>
     `;
 

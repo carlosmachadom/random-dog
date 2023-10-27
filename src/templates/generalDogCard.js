@@ -26,7 +26,9 @@ export default function generalDogCard({
                     </div>    
                 </section>
                 
-                <button class="info__button favourite-btn">${"💘"}</button>
+                <button class="info__button favourite-btn">
+                    <span></span>
+                </button>
             </article>
         `;
     } else {
@@ -37,7 +39,9 @@ export default function generalDogCard({
                         <img src="${imgUrl}" alt="image of a lovely dog" title="image of a lovely dog"/>
                     </figure>
                     
-                    <button class="info__button favourite-btn">${"💘"}</button>
+                    <button class="info__button favourite-btn">
+                        <span></span>
+                    </button>
                 </article>
             `;            
         } else {
@@ -47,7 +51,9 @@ export default function generalDogCard({
                         <img src="${imgUrl}" alt="image of a lovely dog" title="image of a lovely dog"/>
                     </figure>
                     
-                    <button class="info__button favourite-btn">${"💘"}</button>
+                    <button class="info__button favourite-btn">
+                        <span></span>
+                    </button>
                 </article>
             `;
         }

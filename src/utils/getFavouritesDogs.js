@@ -1,5 +1,6 @@
 import getData from "@utils/getData";
 import generalDogCard from "@templates/generalDogCard";
+import { updateArrowVisibilityFavouriteCarousel } from "@utils/favourite-dogs-carousel-behavior";
 
 export default async function getFavouritesDogs() { 
     const FAVOURITE_DOGS_ENDPOINT = `favourites`;
@@ -22,4 +23,6 @@ export default async function getFavouritesDogs() {
             dogsList.append(listItem);
        });
     }
+
+    updateArrowVisibilityFavouriteCarousel();
 }

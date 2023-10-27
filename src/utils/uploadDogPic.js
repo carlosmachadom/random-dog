@@ -6,7 +6,6 @@ const inputFile = document.querySelector(".uploading-form input[type=file]");
 const selectedImageContainer = document.querySelector(".uploading-form > .image-container");
 const selectedImage = document.querySelector(".uploading-form > .image-container .dog-image");
 const selectedImageText = document.querySelector(".uploading-section> .uploading-form> .fake-button .select-text > span");
-const errorSpan = document.querySelector('.uploading-form .error-message');
 
 export default async function uploadDoggie() { 
     const uploadingForm = document.querySelector(".uploading-form");
@@ -52,9 +51,6 @@ export default async function uploadDoggie() {
             }
         }
     } else { 
-        if (errorSpan.classList.contains('hidden')) {
-            errorSpan.classList.remove('hidden');
-            errorSpan.textContent = "No hay ningún archivo";
-        }
+        document.querySelector(".uploading-section > .uploading-form> .fake-button").click();
     }
 }

@@ -1,5 +1,6 @@
 import getData from "@utils/getData";
 import generalDogCard from "@templates/generalDogCard";
+import { updateArrowVisibilityRandomCarousel } from "@utils/random-dogs-carousel-behavior";
 
 export default async function getGeneralRandomDogs({ limit = 3, breed = null, breedId = null } = {}) {
     const RANDOM_DOGS_ENDPOINT = `images/search`;
@@ -31,7 +32,9 @@ export default async function getGeneralRandomDogs({ limit = 3, breed = null, br
             });
     
            listItem.innerHTML = dogCard;
-           dogsList.append(listItem);
+            dogsList.append(listItem);
        });
     }
+
+    updateArrowVisibilityRandomCarousel();
 }
