@@ -73,7 +73,7 @@ module.exports = {
             filename: 'styles/[name].[contenthash].css'
         }),
         new DotEnv(),
-        //new FaviconsWebpackPlugin('./public/assets/images/icons-rick-sanchez.svg'),
+        new FaviconsWebpackPlugin('./public/assets/images/paw.png'),
         new BundleAnalyzerPlugin()
     ],
     devServer: {

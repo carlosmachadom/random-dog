@@ -70,7 +70,6 @@ const restartUploadForm = null || document.querySelector(".uploading-section>.up
     });
 
     randomDogsList.addEventListener('click', (e) => {
-        console.log("true");
         if (e.target.parentNode.classList.contains("favourite-btn")) {
             let id = e.target.parentNode.parentNode.getAttribute("data-id");
             setFavouritesDogs({ dogId: id });
@@ -78,7 +77,6 @@ const restartUploadForm = null || document.querySelector(".uploading-section>.up
     });   
     
     favouriteDogsList.addEventListener('click', (e) => {
-        console.log("true");
         if (e.target.parentNode.classList.contains("favourite-btn")) {
             let id = e.target.parentNode.parentNode.getAttribute("data-id");
             deleteFavouritesDogs({ dogId: id });

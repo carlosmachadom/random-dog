@@ -36,6 +36,7 @@
     --main-white: #f5f6fb;
     --main-black: #1b0209;
     --main-gray: #f5e8eb;
+    --main-green: #41df58;
 }
 
 * {
@@ -75,6 +76,17 @@ ul>li {
 .header .app-title {
     font-size: var(--font-title);
     font-weight: 700;
+}
+
+.header .app-title .logo {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-inline-end: .5rem;
+    background-image: url("@images/paw.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .header .app-description {
@@ -421,6 +433,7 @@ ul>li {
 
 /* Footer */
 .footer {
+    background-color: var(--main-active-color);
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -429,6 +442,7 @@ ul>li {
 }
 
 .footer .footer__text {
+    color: var(--main-white);
     font-size: var(--font-normal);
     font-weight: 300;
 }
@@ -443,15 +457,43 @@ ul>li {
 .footer .footer--nav li a {
     font-size: var(--font-normal);
     font-weight: 300;
+    color: var(--main-white);
+    text-decoration: none;
+}
+
+.footer .footer--nav li a:hover { 
+    text-decoration: underline;
 }
 
 /* Messages container */
 .messages-container {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    right: 50%;
+    transform: translate(50%);
+    margin: 1rem;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.toast-error {
+    padding: 1rem;
+    background-color: var(--main-active-color);
+    border-radius: 6px;
+    color: var(--main-white);
+    font-size: var(--font-small);
+    font-weight: 400;
+    margin-block-end: 1rem;
+}
+
+.toast-success {
+    padding: 1rem;
+    background-color: var(--main-green);
+    border-radius: 6px;
+    color: var(--main-white);
+    font-size: var(--font-small);
+    font-weight: 400;
+    margin-block-end: 1rem;
 }
 
 /* Utils */

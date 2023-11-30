@@ -1,14 +1,21 @@
 {
   "name": "random-dog-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A small application that displays random dog images, allows users to upload new images, and save them as favorites.",
   "main": "main.js",
   "scripts": {
     "build": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js",
     "dev": "webpack --config webpack.config.dev.js",
     "dev:watch": "webpack serve --config webpack.config.dev.js"
   },
-  "author": "",
+  "keywords": [
+    "dogs",
+    "images",
+    "random",
+    "favorites",
+    "upload"
+  ],
+  "author": "Carlos Machado",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.22.5",
